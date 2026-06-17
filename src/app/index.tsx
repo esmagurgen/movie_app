@@ -1,9 +1,9 @@
-import { Text, View, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text>Kardeşim işine baksana </Text>
+      <Text>hello there  </Text>
     </View>
   );
 }
