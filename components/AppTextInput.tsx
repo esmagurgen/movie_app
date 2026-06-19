@@ -1,14 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, TextInput, TextInputProps, View } from "react-native";
 import Colors from '../constants/colors';
 
-const AppInputText = () =>{
+const AppInputText : React.FC<TextInputProps> = ({...props}) =>{
     return (
    <View style={styles.wrapper}>
-    <Text>
-        AppInputText
-    </Text>
-   </View>
+    <TextInput {...props} style={styles.input}>
+     
+    </TextInput>
+        
+    </View>
     )
 }
 
@@ -27,8 +28,11 @@ const styles = StyleSheet.create({
     alignItems:"center",
     justifyContent:"center",
     marginBottom:16,
-
-
-
+    },
+    input:{
+        color : Colors.text
     }
+
+
+    
 })
