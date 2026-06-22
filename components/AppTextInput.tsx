@@ -30,7 +30,10 @@ const styles = StyleSheet.create({
     marginBottom:16,
     },
     input:{
-        color : Colors.text
+        flex:1,
+        height:"100%",
+        color : Colors.text,
+        fontSize:16
     }
 
 
