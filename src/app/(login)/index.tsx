@@ -11,8 +11,7 @@ const LoginScreen = () =>{
             <View style={[
       styles.container, 
      { paddingTop: insets.top, paddingBottom: insets.bottom , backgroundColor:Colors.background}
-    ]}>
-                <Text style={styles.text}>
+    ]}>         <Text style={styles.text}>
                   Ready to Stream? 
                 </Text>
                 <View style = {styles.inputwrapper}>
@@ -20,6 +19,8 @@ const LoginScreen = () =>{
                  <AppTextInput placeholder='Password' secureTextEntry/> 
                  <AddButton style={{backgroundColor:Colors.primary,width:"100%",height:50}} title='Login'/>
                 </View>
+                <Text style={styles.createAccount}>Haven't signed up yet ?</Text>
+                <Text style={{color:Colors.primary}}>Create Account</Text>
             </View>
     )
 }
@@ -42,5 +43,10 @@ const styles = StyleSheet.create({
      width:"100%",
      marginVertical:26,
 
+    },
+    createAccount:{
+       color:Colors.gray,
+      fontSize:14,
+      marginTop:14
     },
 });
