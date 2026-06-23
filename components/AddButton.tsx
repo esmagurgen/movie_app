@@ -13,22 +13,15 @@ const AddButton = ({title,icon,style,onPress}:AppButtonProps) =>{
     return (
         <TouchableOpacity onPress={onPress} activeOpacity={0.6} style={[styles.container,style]}>
             <View style={{flexDirection:"row"}}>
-
             <Text style={{color:Colors.text,fontWeight:"600",marginRight:6}}>
-                {title}
-
+            {title}
             </Text>
             {icon}
             </View>
-         
-
-
-                
-
-        </TouchableOpacity>
-    )
-}
-
+            </TouchableOpacity>
+    );       
+};
+    
 export default AddButton;
 
 const styles = StyleSheet.create({
@@ -43,3 +36,10 @@ const styles = StyleSheet.create({
      borderColor:"#202020"
     }
 })
+
+
+                
+
+    
+
+

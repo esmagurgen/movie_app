@@ -2,18 +2,17 @@ import React from 'react';
 import { StyleSheet, TextInput, TextInputProps, View } from "react-native";
 import Colors from '../constants/colors';
 
-const AppInputText : React.FC<TextInputProps> = ({...props}) =>{
+const AppTextInput : React.FC<TextInputProps> = ({...props}) =>{
     return (
    <View style={styles.wrapper}>
-    <TextInput {...props} style={styles.input}>
-     
-    </TextInput>
-        
-    </View>
+    <TextInput {...props} style={styles.input}/>
+    </View>   
     )
-}
+}   
+    
+export default AppTextInput ;
 
-export default AppInputText ;
+
 
 const styles = StyleSheet.create({
     wrapper:{
@@ -35,7 +34,6 @@ const styles = StyleSheet.create({
         color : Colors.text,
         fontSize:16
     }
-
+});
 
     
-})
