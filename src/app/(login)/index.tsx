@@ -18,7 +18,7 @@ const LoginScreen = () =>{
                  <AppTextInput placeholder='Your Email'/>
                  <AppTextInput placeholder='Password' secureTextEntry/> 
                  <Text style={styles.forget}>Forget Password?</Text>
-                 <AddButton style={{backgroundColor:Colors.primary,width:"100%",height:50}} title='Login'/>
+                 <AddButton onPress={()=>router.push('/(tabs)/(home)')} style={{backgroundColor:Colors.primary,width:"100%",height:50}} title='Login'/>
                 </View>
                 <Text style={styles.createAccount}>Haven't signed up yet ?</Text>
                 <Text onPress={()=>router.push("/sign-up")} style={{color:Colors.primary}}>
@@ -33,7 +33,7 @@ export default LoginScreen;
 const styles = StyleSheet.create({
     container:{
         flex:1,
-       padding:14,
+       padding:16,
        justifyContent:"center",
        alignItems:"center"
     },
