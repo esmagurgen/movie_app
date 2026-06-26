@@ -1,8 +1,8 @@
 import { Image } from 'expo-image'
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View,Text } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-
+import Colors from '../constants/colors'
 const OverviewSection = () => {
     const insets=useSafeAreaInsets()
   return (
@@ -14,6 +14,10 @@ const OverviewSection = () => {
             <View style={styles.header}>
                 <View style={{flexDirection:"row",alignItems:"center"}}>
                     <Image style={styles.profile} source={require("../assets/images/profile.jpg")} contentFit='cover'/>
+                    <View style={{marginLeft:8}}>
+                        <Text style={styles.greeting}>Hi,Kevin</Text>
+                        <Text style={{color:Colors.text,fontSize:16}}>Welcome Back</Text>
+                    </View>
                 </View>
             </View>
         </View>
@@ -52,5 +56,10 @@ const styles = StyleSheet.create({
         height:45,
         width:45,
         borderRadius:50
-    }
+    },
+    greeting:{
+        color:Colors.text,
+        fontWeight:"600",
+        fontSize:22,
+    },
 });
