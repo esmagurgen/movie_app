@@ -43,7 +43,7 @@ const TabLayout = () => {
             (
          <Feather name="folder" size={20} color={color}/>
             ),
-               tabBarLabel:"Series",
+         tabBarLabel:"Series",
         headerShown:false
      }}/>
      <Tabs.Screen 

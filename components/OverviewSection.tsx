@@ -1,6 +1,7 @@
+import { Feather } from "@expo/vector-icons"
 import { Image } from 'expo-image'
 import React from 'react'
-import { StyleSheet, View,Text } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import Colors from '../constants/colors'
 const OverviewSection = () => {
@@ -19,6 +20,9 @@ const OverviewSection = () => {
                         <Text style={{color:Colors.text,fontSize:16}}>Welcome Back</Text>
                     </View>
                 </View>
+                <TouchableOpacity style={styles.searchWrapper} activeOpacity={0.8}>
+                    <Feather name="search" size={24} style={{color:Colors.text}}></Feather>
+                </TouchableOpacity>
             </View>
         </View>
     </View>
@@ -62,4 +66,12 @@ const styles = StyleSheet.create({
         fontWeight:"600",
         fontSize:22,
     },
-});
+    searchWrapper:{
+        height:50,
+        width:50,
+        backgroundColor:"#535456",
+        borderRadius:50, 
+        alignItems:"center",
+        justifyContent:"center"
+    },
+});  
