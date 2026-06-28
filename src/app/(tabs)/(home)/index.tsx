@@ -10,12 +10,10 @@ const HomeScreen = () => {
      <ScrollView>
       <OverviewSection/>
      </ScrollView>
-     
-    </View>
-    
-  )
+    </View> 
+    )
 }
-
+  
 export default HomeScreen;
 
 const styles = StyleSheet.create({
@@ -23,4 +21,5 @@ const styles = StyleSheet.create({
     flex:1,
     backgroundColor:Colors.background
   },
-})
+})    
+

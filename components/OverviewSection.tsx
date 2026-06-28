@@ -1,5 +1,6 @@
-import { Feather } from "@expo/vector-icons"
+import { Feather, FontAwesome } from "@expo/vector-icons"
 import { Image } from 'expo-image'
+import { LinearGradient } from "expo-linear-gradient"
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -25,6 +26,18 @@ const OverviewSection = () => {
                 </TouchableOpacity>
             </View>
         </View>
+        <LinearGradient style={styles.blur} colors={["transparent",Colors.background]}>
+            <View style={styles.categoryBadge}>
+                <Text style={{color:Colors.text,fontWeight:"500",fontSize:16}}>Series</Text>
+            </View>
+            <View style={{flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+               <Text numberOfLines={1} style={{fontSize:26,fontWeight:"600",color:Colors.text,flex:1 }}>The Sandman</Text>
+               <TouchableOpacity activeOpacity={0.8} style={styles.playbtn}>
+                <FontAwesome name="play" size={24} color={Colors.text}/>
+               </TouchableOpacity>
+            </View> 
+            <Text style={{color:Colors.gray}}>2025 | Monster Horror | Sci-fi epic </Text>
+        </LinearGradient>
     </View>
     </View>
   )
@@ -74,4 +87,25 @@ const styles = StyleSheet.create({
         alignItems:"center",
         justifyContent:"center"
     },
+    blur:{
+        height:150,
+        width:"100%",
+        padding:14,
+        justifyContent:"space-around"
+    },
+    categoryBadge:{
+        padding:8,
+        backgroundColor:Colors.surface,
+        borderRadius:14,
+        alignItems:"center",
+        width:100
+    },
+    playbtn:{
+        height:60,
+        width:60,
+        borderRadius:"50%",
+        alignItems:"center",
+        justifyContent:"center",
+        backgroundColor:Colors.surface
+    }
 });  
