@@ -1,7 +1,7 @@
 export const movies = [
   {
     image: require("@/assets/images/movie1.png"),
-    title: "The Sandan",
+    title: "The Sandman",
     genre: "Action | Drama",
   },
   {
