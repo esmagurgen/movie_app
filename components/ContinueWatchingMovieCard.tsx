@@ -1,7 +1,7 @@
 import { FontAwesome5 } from '@expo/vector-icons'
 import { Image } from 'expo-image'
 import React from 'react'
-import { DimensionValue, ImageSourcePropType, StyleSheet, TouchableOpacity, View } from 'react-native'
+import { DimensionValue, ImageSourcePropType, StyleSheet, TouchableOpacity, View,Text } from 'react-native'
 import Colors from '../constants/colors'
 import { hs, vs } from '../screen-dimensions'
 interface ContinueWatchingMovieCardProps{
@@ -22,12 +22,14 @@ const ContinueWatchingMovieCard = ({genre,title,image}:ContinueWatchingMovieCard
     <View style={styles.container}>
    <View style={{position:"relative"}}>
     <TouchableOpacity style={styles.pressPlay}>
-   <FontAwesome5 name="play" size={24} color="#814b4b" />
+   <FontAwesome5  name="play" size={24} color="#202020" />
     </TouchableOpacity>
     <Image source={image} style={styles.image}/>
     <View style={styles.progressbarContainer}>
   <View style={[styles.progress, {width:randomPercentage}]}></View>
   </View>
+  <Text numberOfLines={1} style={{color:Colors.text,fontWeight:"600",fontSize:16}}>{title}</Text>
+  <Text numberOfLines={1} style={{ color:Colors.gray,fontSize:12}}>{genre}</Text>
    </View>
     </View>
   )
@@ -50,9 +52,9 @@ const styles = StyleSheet.create({
     pressPlay:{
         position:"absolute",
         top:0,
-        bottom:0,
+        bottom:30,
         left:0,
-        right:0,
+        right:-70,
         zIndex:9999,
         alignItems:"center",
         justifyContent:"center"

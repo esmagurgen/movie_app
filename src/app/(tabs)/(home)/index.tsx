@@ -40,10 +40,18 @@ const HomeScreen = () => {
     />
      </View>
      <SectionHeader title="Continue watching"/>
+     <FlatList 
+     horizontal
+     showsHorizontalScrollIndicator={false}
+    contentContainerStyle={{paddingHorizontal:12, paddingBottom:10,gap:80}}
+     data={[...movies].reverse()}
+     renderItem={({item})=>(
      <ContinueWatchingMovieCard
-      genre="Action | Drama " 
-      title="Sandman" 
-      image={require("@/assets/images/movie1.png")}/>
+      genre={item.genre} 
+      title={item.title}
+      image={item.image}/>
+     )}></FlatList>
+    
      </ScrollView>
     
   )
