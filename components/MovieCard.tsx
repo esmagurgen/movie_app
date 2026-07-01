@@ -20,7 +20,7 @@ const MovieCard = ({genre,title,image}:MovieCardProps) => {
       </View>
     </TouchableOpacity>
   )
-}
+} 
 
 export default MovieCard
 

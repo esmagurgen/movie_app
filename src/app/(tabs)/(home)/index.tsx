@@ -5,6 +5,7 @@ import OverviewSection from '../../../../components/OverviewSection'
 import Colors from '../../../../constants/colors'
 import { movies } from '../../../../mock-data'
 
+
 const SectionHeader = ({title}:{title:string})=>{
    return(
     <View style={styles.sectionHeader}>
@@ -19,23 +20,28 @@ const SectionHeader = ({title}:{title:string})=>{
 
 const HomeScreen = () => {
   return (
-    <View style={styles.container}>
-     <ScrollView style={styles.scrollContainer}>
-      <OverviewSection/>
-      <View style={{flex:1}}>
-        <View style={{marginVertical:20}}>
-          <SectionHeader title='Trending'/>
+     <ScrollView style={styles.container}  showsVerticalScrollIndicator={false}>
+      <OverviewSection/> 
+      <SectionHeader title='Trending'/>
+      <View style={styles.sectionHeader}>
+      <FlatList
+      horizontal
+      showsHorizontalScrollIndicator={false}
+     contentContainerStyle={{paddingHorizontal:14, paddingBottom:10}}
+      data={movies}
+      keyExtractor={(item,index) => index.toString()}
+      renderItem={({item}) =>(
+        <View style={styles.cardContainer}>
+        <MovieCard genre={item.genre} title={item.title} image={item.image}/>
         </View>
-        <FlatList data={movies} renderItem = {( {item} ) => (
-        <MovieCard genre={item.genre} title={item.title} image={item.image} />
-  )}/>
-       </View>
+      )}
+      
+    />
+    </View>
      </ScrollView>
-    </View> 
     )
 } 
-      
-  
+    
 export default HomeScreen;
 
 const styles = StyleSheet.create({
@@ -43,8 +49,12 @@ const styles = StyleSheet.create({
     flex:1,
     backgroundColor:Colors.background
   },
-  scrollContainer:{
-    flexGrow:1
+  cardContainer:{
+ width:150,
+ marginRight:15,
+ backgroundColor:Colors.background,
+ borderRadius:12,
+ overflow:"hidden",
   },
   sectionHeader:{
     flexDirection:"row",
@@ -55,3 +65,8 @@ const styles = StyleSheet.create({
   },
 })    
 
+    
+       
+       
+      
+  
