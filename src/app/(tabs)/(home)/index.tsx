@@ -4,6 +4,7 @@ import MovieCard from '../../../../components/MovieCard'
 import OverviewSection from '../../../../components/OverviewSection'
 import Colors from '../../../../constants/colors'
 import { movies } from '../../../../mock-data'
+import ContinueWatchingMovieCard from '../../../../components/ContinueWatchingMovieCard'
 
 
 const SectionHeader = ({title}:{title:string})=>{
@@ -27,7 +28,7 @@ const HomeScreen = () => {
       <FlatList
       horizontal
       showsHorizontalScrollIndicator={false}
-     contentContainerStyle={{paddingHorizontal:14, paddingBottom:10}}
+     contentContainerStyle={{paddingHorizontal:12, paddingBottom:10}}
       data={movies}
       keyExtractor={(item,index) => index.toString()}
       renderItem={({item}) =>(
@@ -37,9 +38,16 @@ const HomeScreen = () => {
       )}
       
     />
-    </View>
+     </View>
+     <SectionHeader title="Continue watching"/>
+     <ContinueWatchingMovieCard
+      genre="Action | Drama " 
+      title="Sandman" 
+      image={require("@/assets/images/movie1.png")}/>
      </ScrollView>
-    )
+    
+  )
+    
 } 
     
 export default HomeScreen;
@@ -53,7 +61,7 @@ const styles = StyleSheet.create({
  width:150,
  marginRight:15,
  backgroundColor:Colors.background,
- borderRadius:12,
+ borderRadius:15,
  overflow:"hidden",
   },
   sectionHeader:{
