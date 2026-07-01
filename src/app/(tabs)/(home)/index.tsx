@@ -50,13 +50,30 @@ const HomeScreen = () => {
       genre={item.genre} 
       title={item.title}
       image={item.image}/>
-     )}></FlatList>
-    
+     )}>
+    </FlatList>
+    <View>
+        <SectionHeader title='New Releases'/>
+         <View style={styles.sectionHeader}>
+      <FlatList
+      horizontal
+      showsHorizontalScrollIndicator={false}
+     contentContainerStyle={{paddingHorizontal:12, paddingBottom:10}}
+      data={movies}
+      keyExtractor={(item,index) => index.toString()}
+      renderItem={({item}) =>(
+        <View style={styles.cardContainer}>
+        <MovieCard genre={item.genre} title={item.title} image={item.image}/>
+        </View>
+      )}
+       />
+     </View>
+    </View>   
      </ScrollView>
-    
-  )
-    
+  )     
 } 
+
+ 
     
 export default HomeScreen;
 
