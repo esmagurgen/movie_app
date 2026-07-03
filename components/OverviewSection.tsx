@@ -52,8 +52,7 @@ const styles = StyleSheet.create({
     },
     overViewImage:{
         width:"100%",
-        height:"100%",
-       
+        height:"100%",      
     },
     cover:{
         position:"absolute",
