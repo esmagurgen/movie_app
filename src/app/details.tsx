@@ -3,10 +3,23 @@ import { Image } from 'expo-image'
 import { LinearGradient } from "expo-linear-gradient"
 import { useRouter } from 'expo-router'
 import React from 'react'
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import AddButton from "../../components/AddButton"
+import MovieCard from "../../components/MovieCard"
 import Colors from '../../constants/colors'
+import { movies } from "../../mock-data"
+const SectionHeader = ({title}:{title:string})=>{
+   return(
+    <View style={styles.sectionHeader}>
+      <Text style={{color:Colors.text,fontWeight:"600",fontSize:16}}>{title}</Text>
+      <TouchableOpacity activeOpacity={.8} style={{padding:10}}>
+        <Text style={{color:Colors.primary}}>See More</Text>
+      </TouchableOpacity>
+    </View>
+    )
+} 
+
 const DetailsScreen = () => {
   const insets=useSafeAreaInsets()
   const router=useRouter()
@@ -52,6 +65,27 @@ const DetailsScreen = () => {
      <Text style={{fontSize:10,color:Colors.text}}>Share</Text>
       </TouchableOpacity>
     </View>
+    <View>
+      <Text style={{color:Colors.primary,fontWeight:"600",fontSize:18,marginLeft:12}}>OverView</Text>
+      <Text style={{color:Colors.text,marginTop:10,fontSize:12,marginLeft:12}}>
+      In a world ravaged by a fungal outbreak that turns people into monsters,a hardened smuggler,Joel,is tasked with escorting a teenage girl,Ellie - who may hold the key to humanity's survival - across the ruins of the United States. 
+      </Text>
+    </View>
+      <SectionHeader title='You may also like'/>
+      <View style={styles.sectionHeader}>
+      <FlatList
+      horizontal
+      showsHorizontalScrollIndicator={false}
+     contentContainerStyle={{paddingHorizontal:12, paddingBottom:10}}
+      data={movies.reverse()}
+      keyExtractor={(item,index) => index.toString()}
+      renderItem={({item}) =>(
+        <View style={styles.cardContainer}>
+        <MovieCard genre={item.genre} title={item.title} image={item.image}/>
+        </View>
+      )}
+       />
+     </View>
     </ScrollView>
   )
 }
@@ -99,5 +133,19 @@ const styles = StyleSheet.create({
     flexDirection:"row",
     alignItems:"center",
     marginVertical:16
-  }
+  },
+  sectionHeader:{
+    flexDirection:"row",
+    alignItems:"center",
+    justifyContent:"space-between",
+    marginBottom:14,
+    paddingHorizontal:14,
+  },
+   cardContainer:{
+ width:150,
+ marginRight:15,
+ backgroundColor:Colors.background,
+ borderRadius:15,
+ overflow:"hidden",
+  },
 })
