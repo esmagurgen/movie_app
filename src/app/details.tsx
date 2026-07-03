@@ -1,4 +1,4 @@
-import { AntDesign, Feather, FontAwesome5 } from "@expo/vector-icons"
+import { AntDesign, Feather, FontAwesome5, Ionicons } from "@expo/vector-icons"
 import { Image } from 'expo-image'
 import { LinearGradient } from "expo-linear-gradient"
 import { useRouter } from 'expo-router'
@@ -42,6 +42,16 @@ const DetailsScreen = () => {
       icon={<Feather name="download" size={16} color={Colors.text}/>}/>
      </View>
     </View>
+    <View style={styles.btnwrapper}>
+      <TouchableOpacity activeOpacity={.8} style={{alignItems:"center",marginLeft:18}}>
+     <Feather name="bookmark" size={16} color={Colors.text}/>
+     <Text style={{fontSize:10,color:Colors.text}}>Save</Text>
+      </TouchableOpacity>
+     <TouchableOpacity activeOpacity={.8} style={{alignItems:"center",marginLeft:18}}>
+     <Ionicons name="paper-plane-outline" size={16} color={Colors.text}/>
+     <Text style={{fontSize:10,color:Colors.text}}>Share</Text>
+      </TouchableOpacity>
+    </View>
     </ScrollView>
   )
 }
@@ -84,5 +94,10 @@ const styles = StyleSheet.create({
     width:"100%",
     padding:14,
     justifyContent:"space-between",
+  },
+  btnwrapper:{
+    flexDirection:"row",
+    alignItems:"center",
+    marginVertical:16
   }
 })
