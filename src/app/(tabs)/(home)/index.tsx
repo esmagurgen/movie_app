@@ -1,10 +1,10 @@
 import React from 'react'
 import { FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import ContinueWatchingMovieCard from '../../../../components/ContinueWatchingMovieCard'
 import MovieCard from '../../../../components/MovieCard'
 import OverviewSection from '../../../../components/OverviewSection'
 import Colors from '../../../../constants/colors'
 import { movies } from '../../../../mock-data'
-import ContinueWatchingMovieCard from '../../../../components/ContinueWatchingMovieCard'
 
 
 const SectionHeader = ({title}:{title:string})=>{
@@ -20,6 +20,7 @@ const SectionHeader = ({title}:{title:string})=>{
   
 
 const HomeScreen = () => {
+  
   return (
      <ScrollView style={styles.container}  showsVerticalScrollIndicator={false}>
       <OverviewSection/> 

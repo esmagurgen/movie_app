@@ -1,4 +1,5 @@
 import { Image } from 'expo-image'
+import { useRouter } from 'expo-router'
 import React from 'react'
 import { ImageSourcePropType, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Colors from '../constants/colors'
@@ -11,8 +12,9 @@ interface MovieCardProps{
 }
 
 const MovieCard = ({genre,title,image}:MovieCardProps) => {
+  const router=useRouter()
   return (
-    <TouchableOpacity activeOpacity={.8} style={styles.container}>
+    <TouchableOpacity onPress={()=>router.push("/details")} activeOpacity={.8} style={styles.container}>
       <Image style={styles.image} source={image}/>
       <View>
         <Text numberOfLines={1} style={{color:Colors.text,fontWeight:"600",fontSize:ms(14)}}>{title}</Text>
