@@ -1,10 +1,11 @@
-import { AntDesign, Feather } from "@expo/vector-icons"
+import { AntDesign, Feather, FontAwesome5 } from "@expo/vector-icons"
 import { Image } from 'expo-image'
 import { LinearGradient } from "expo-linear-gradient"
 import { useRouter } from 'expo-router'
 import React from 'react'
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import AddButton from "../../components/AddButton"
 import Colors from '../../constants/colors'
 const DetailsScreen = () => {
   const insets=useSafeAreaInsets()
@@ -13,7 +14,6 @@ const DetailsScreen = () => {
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
     <View style={styles.overview}>
     <Image style={styles.overviewImage} source={require("@/assets/images/overview.png")} />
-    </View>
     <View style={[
       styles.cover,{ paddingTop: insets.top}]}>
       <View style={{flex:1,paddingHorizontal:14}}>
@@ -29,6 +29,18 @@ const DetailsScreen = () => {
           <Text style={{color:"#ff891b",fontWeight:"600",marginLeft:6}}>9.5</Text>
         </View>
       </LinearGradient>
+    </View>
+    </View>
+    <View style={{padding:14}}>
+     <View style={{flexDirection:"row",alignItems:"center"}}>
+      <AddButton 
+      title="Watch Now"
+      style={{backgroundColor:Colors.primary}}
+      icon={<FontAwesome5 name="play" size={16} color={Colors.text}/>} />
+      <AddButton
+      title="Download"
+      icon={<Feather name="download" size={16} color={Colors.text}/>}/>
+     </View>
     </View>
     </ScrollView>
   )
