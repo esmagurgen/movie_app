@@ -42,7 +42,14 @@ const TabLayout = () => {
          <Feather name="play-circle" size={20} color={color}/>
            ),
           tabBarLabel:"Movies",
-        headerShown:false
+         headerStyle:{backgroundColor:Colors.background},
+         headerTitle:"",
+         headerRight:()=>{
+           return <RightIcon/>
+         },
+         headerLeft:()=>{
+          return <Text style={styles.title}>Movies</Text>
+         },
      }}/>
       <Tabs.Screen 
      name="series" 
@@ -52,7 +59,14 @@ const TabLayout = () => {
          <Feather name="folder" size={20} color={color}/>
             ),
          tabBarLabel:"Series",
-        headerShown:false
+        headerStyle:{backgroundColor:Colors.background},
+        headerTitle:"",
+        headerRight:()=>{
+          return <RightIcon/>
+        },
+        headerLeft:()=>{
+          return <Text style={styles.title}>Tv/Series</Text>
+        }
      }}/>
      <Tabs.Screen 
      name="profile"
@@ -71,7 +85,7 @@ const TabLayout = () => {
       return <Text style={styles.title}>Profile</Text>
       }
      }}/>
-    </Tabs>      
+    </Tabs>       
     )
 }       
 
