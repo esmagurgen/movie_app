@@ -1,9 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Feather, MaterialCommunityIcons, Octicons } from "@expo/vector-icons"
 import { Tabs } from 'expo-router'
+import React from 'react'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import Colors from '../../../constants/colors'
-import {Feather} from "@expo/vector-icons"
-import { Octicons } from '@expo/vector-icons'
+
+const RightIcon=({icon}:{icon?:any}) =>{
+    return(
+        <TouchableOpacity activeOpacity={.8} style={styles.rightIconWrapper}>
+            {icon? icon : <Feather name="search" size={24} color={Colors.text}/> }
+        </TouchableOpacity>
+    )
+}
+
 const TabLayout = () => {
   return (
     <Tabs
@@ -54,7 +62,14 @@ const TabLayout = () => {
          <Octicons name="person" size={20} color={color}/>
             ),
         tabBarLabel:"Me",
-        headerShown:false
+      headerStyle:{backgroundColor:Colors.background},
+      headerTitle:"",
+      headerRight:()=>{
+        return <RightIcon icon={<MaterialCommunityIcons size={25} name="cog-outline" color={Colors.text}/>}/>
+      },
+      headerLeft:()=>{
+      return <Text style={styles.title}>Profile</Text>
+      }
      }}/>
     </Tabs>      
     )
@@ -62,7 +77,23 @@ const TabLayout = () => {
 
 export default TabLayout;
 
-const styles = StyleSheet.create({})   
+const styles = StyleSheet.create({
+    rightIconWrapper:{
+        height:45,
+        width:45,
+        backgroundColor:"#202020",
+        borderRadius:"50%",
+        alignItems:"center",
+        justifyContent:"center",
+        marginRight:14
+    },
+    title:{
+        color:Colors.text,
+        marginLeft:14,
+        fontWeight:"600",
+        fontSize:24
+    }, 
+})   
         
      
      
