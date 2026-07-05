@@ -14,7 +14,7 @@ interface MovieCardProps{
 const MovieCard = ({genre,title,image}:MovieCardProps) => {
   const router=useRouter()
   return (
-    <TouchableOpacity onPress={()=>router.push("/details")} activeOpacity={.8} style={styles.container}>
+    <TouchableOpacity onPress={()=>router.push("/(tabs)/movies")} activeOpacity={.8} style={styles.container}>
       <Image style={styles.image} source={image}/>
       <View>
         <Text numberOfLines={1} style={{color:Colors.text,fontWeight:"600",fontSize:ms(14)}}>{title}</Text>
