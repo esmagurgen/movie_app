@@ -4,6 +4,7 @@ import ContinueWatchingMovieCard from '../../../../components/ContinueWatchingMo
 import MovieCard from '../../../../components/MovieCard'
 import OverviewSection from '../../../../components/OverviewSection'
 import Colors from '../../../../constants/colors'
+import { useFetch } from '../../../../hooks/useFetch'
 import { movies } from '../../../../mock-data'
 
 
@@ -21,6 +22,13 @@ const SectionHeader = ({title}:{title:string})=>{
 
 const HomeScreen = () => {
   
+  const {data,error,loading} = useFetch("/discover/movie",{
+    include_adult:false,
+    include_video:false,
+    language:"en-US",
+    page:1,
+    sort_by:"popularity.desc"
+  })
   return (
      <ScrollView style={styles.container}  showsVerticalScrollIndicator={false}>
       <OverviewSection/> 
